@@ -7,3 +7,6 @@
 //
 
 import Foundation
+protocol NatalieDelegate: class {
+    func passMeetup(meetupData: String)
+}

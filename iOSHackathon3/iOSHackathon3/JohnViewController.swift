@@ -24,14 +24,14 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
     var showsUserLocation: Bool {
         return true
     }
-    var eventName: String = "Name"
+    var eventName: String = "Name" //*
     var meetupCity: String  = "San Jose"
     var meetupLat: Double = 37.3753590
     var meetupLon: Double = -121.910980
     var meetupAddress: String = "1920 Zanker Rd #20"
-    var meetupName: String = "Name"
-    var meetupURL: String = "URL"
-    var meetupTime: String = "7:00pm - 12 June"
+    var meetupName: String = "Name" //*
+    var meetupURL: String = "URL" //*
+    var meetupTime: String = "7:00pm - 12 June" //*
     
         
     

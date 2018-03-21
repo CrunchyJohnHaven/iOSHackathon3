@@ -9,7 +9,7 @@
 import UIKit
 
 class NatalieViewController: UIViewController {
-
+    var delegate: NatalieDelegate?
     @IBOutlet weak var eventNameLabel: UILabel!
 
     @IBOutlet weak var meetupNameLabel: UILabel!
