@@ -156,6 +156,16 @@ extension JohnViewController: MKMapViewDelegate {
         }
         return view
 }
+    
+//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "ShowClue" {
+//        let navigationController = segue.destination as! UINavigationController
+//        let controller = navigationController.topViewController as! ViewControllerTwo
+//        controller.delegate = self
+//        }
+//    }
+
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         
