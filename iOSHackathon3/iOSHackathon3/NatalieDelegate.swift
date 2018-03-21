@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+protocol ReturnButtonDelegate: class {
+    func returnButton(by controller: UIViewController)
+}

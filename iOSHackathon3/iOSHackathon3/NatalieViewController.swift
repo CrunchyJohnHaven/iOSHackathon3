@@ -10,6 +10,16 @@ import UIKit
 
 class NatalieViewController: UIViewController {
 
+    var delegate: ReturnButtonDelegate?
+    
+    @IBAction func returnButton(_ sender: UIButton) {
+        print("return button pressed")
+        delegate?.returnButton(by: self)
+    }
+    
+    
+    
+    
     @IBOutlet weak var eventNameLabel: UILabel!
 
     @IBOutlet weak var meetupNameLabel: UILabel!
@@ -19,11 +29,7 @@ class NatalieViewController: UIViewController {
     @IBOutlet weak var timePlaceLabel: UILabel!
     
     
-    @IBAction func returnButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
+
     
     
     override func viewDidLoad() {
@@ -38,23 +44,11 @@ class NatalieViewController: UIViewController {
     }
     
     
-    
     // ======== add to john's controller page. =======
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        let navController = segue.destination as! UINavigationController
 //        let natViewController = navController.JohnViewController as! NatalieViewController
 //    }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

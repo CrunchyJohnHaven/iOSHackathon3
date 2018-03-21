@@ -166,7 +166,7 @@
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="returnButton:" destination="QGd-BR-TgQ" eventType="touchUpInside" id="zSL-zW-W9O"/>
+                                    <action selector="returnButton:" destination="QGd-BR-TgQ" eventType="touchUpInside" id="hMh-Hq-zIh"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DFb-zB-z1X">
