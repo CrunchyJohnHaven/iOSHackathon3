@@ -10,6 +10,14 @@ import UIKit
 
 class NatalieViewController: UIViewController {
 
+    @IBOutlet weak var eventNameLabel: UILabel!
+
+    @IBOutlet weak var meetupNameLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var timePlaceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
