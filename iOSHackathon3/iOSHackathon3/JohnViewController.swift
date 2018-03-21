@@ -31,6 +31,7 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
     var meetupAddress: String = "1920 Zanker Rd #20"
     var meetupName: String = "Name"
     var meetupURL: String = "URL"
+    var meetupTime: String = "7:00pm - 12 June"
     
         
     
@@ -55,35 +56,33 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
                                 let venueDict = resultsDict["venue"] as! NSDictionary
                                 if venueDict.value(forKey: "lon") != nil {
                                     self.meetupLon = (venueDict["lon"] as! Double)
-                                    print("lon \(self.meetupLon)")
                                 }
                                 if venueDict.value(forKey: "lat") != nil  {
                                     self.meetupLat = Double(venueDict["lat"] as! Float)
-                                    print("lan \(self.meetupLat)")
                                 }
                                 if venueDict.value(forKey: "address_1") != nil  {
                                     self.meetupAddress = venueDict["address_1"] as! String
-                                    print("address \(self.meetupAddress)")
                                 }
                                 if venueDict.value(forKey: "city") != nil  {
                                     self.meetupCity = venueDict["city"] as! String
-                                    print("city \(self.meetupCity)")
                                 }
+                                
+                                
                             }
                             if resultsDict.value(forKey: "event_url") != nil {
                                 let meetupUrl = resultsDict["event_url"] as! String
-                                print("URL \(meetupUrl)")
                             }
                             if resultsDict.value(forKey: "time") != nil {
                                 let meetupTime = resultsDict["time"] as! Int
-                                print("Time \(meetupTime)")
+                            gi
+                                
                             }
                             var artwork = Artwork(title: "\(self.eventName)",
                                 city: "\(self.meetupCity)",
                                 address: "\(self.meetupAddress)",
-                                desc: "(meetupDesc)",
+                                desc: "\(self.meetupTime)",
                                 who: "\(self.meetupName)",
-                                time: "TIME",
+                                time: "\(self.meetupTime)",
                                 event_url: "\(self.meetupURL)",
                                 coordinate: CLLocationCoordinate2D(latitude: self.meetupLat, longitude: self.meetupLon))
                             self.mapView.addAnnotation(artwork)
