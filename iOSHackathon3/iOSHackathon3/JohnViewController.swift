@@ -7,7 +7,7 @@
  //https://data.sfgov.org/resource/wwmu-gmzc.json
 //https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am
 //https://dev.socrata.com/foundry/data.sfgov.org/wwmu-gmzc
-// 
+//
 
 import UIKit
 import MapKit
@@ -22,7 +22,6 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
     var showsUserLocation: Bool {
         return true
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self;
@@ -41,7 +40,6 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
         
         centerMapOnLocation(location: initialLocation)
     mapView.delegate = self
-
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //                let location = locations[0]
