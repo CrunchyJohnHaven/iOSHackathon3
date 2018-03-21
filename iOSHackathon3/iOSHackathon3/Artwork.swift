@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 import Contacts
 
 class Artwork: NSObject, MKAnnotation {

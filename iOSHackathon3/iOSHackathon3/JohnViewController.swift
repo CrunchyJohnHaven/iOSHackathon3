@@ -4,7 +4,10 @@
 //
 //  Created by john bradley on 3/20/18.
 //  Copyright © 2018 TeamQuickDraw. All rights reserved.
-//
+ //https://data.sfgov.org/resource/wwmu-gmzc.json
+//https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am
+//https://dev.socrata.com/foundry/data.sfgov.org/wwmu-gmzc
+// 
 
 import UIKit
 import MapKit
@@ -16,11 +19,16 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
     let initialLocation = CLLocation(latitude: 37.3753590, longitude: -121.910980)
     let locationManager = CLLocationManager()
     var location: Artwork?
+    var showsUserLocation: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.locationManager.delegate = self
-        self.locationManager.startUpdatingLocation()
+        locationManager.delegate = self;
+        self.mapView.delegate = self;
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         let artwork = Artwork(title: "Coding Dojo Silicon Valley",
                               tag: "Click to investigate The Dojo!",
                               discipline: "Home",
@@ -36,13 +44,12 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-                let location = locations[0]
-                let center = location.coordinate
-                let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-                let region = MKCoordinateRegion(center:center, span:span)
-                mapView.setRegion(region, animated: true)
-                mapView.showsUserLocation = true
-
+//                let location = locations[0]
+//                let center = location.coordinate
+//                let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+//                let region = MKCoordinateRegion(center:center, span:span)
+//                mapView.setRegion(region, animated: true)
+        mapView.showsUserLocation = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,6 +59,7 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
 }
 extension JohnViewController: MKMapViewDelegate {
     // 1 - gets called for every annotation added
