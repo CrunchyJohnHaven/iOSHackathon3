@@ -7,7 +7,8 @@
  //https://data.sfgov.org/resource/wwmu-gmzc.json
 //https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am
 //https://dev.socrata.com/foundry/data.sfgov.org/wwmu-gmzc
-// 
+//
+//"title":"Coding Dojo Silicon Valley", "city": "San Jose", "address": "1920 Zanker Rd #20, San Jose, CA 95112", "desc": "coding Dojo meetup", "who": "Coding Dojo Silicon Valley", "time": "April 3rd", "event_url": "http://www.codingdojo", "lat":"37.3753590", "lon":"-121.910980"
 
 import UIKit
 import MapKit
@@ -15,6 +16,7 @@ import CoreLocation
 import Contacts
 
 class JohnViewController: UIViewController, CLLocationManagerDelegate {
+    var meetups: [String] = []
     @IBOutlet weak var mapView: MKMapView!
     let initialLocation = CLLocation(latitude: 37.3753590, longitude: -121.910980)
     let locationManager = CLLocationManager()
@@ -22,26 +24,97 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
     var showsUserLocation: Bool {
         return true
     }
-
+    var eventName: String = "Name"
+    var meetupCity: String  = "San Jose"
+    var meetupLat: Double = 37.3753590
+    var meetupLon: Double = -121.910980
+    var meetupAddress: String = "1920 Zanker Rd #20"
+    var meetupName: String = "Name"
+    var meetupURL: String = "URL"
+    
+        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        MeetupModel.getTechMeetups(completionHandler: {data, response, error in
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options:
+                    JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                    print("run1")
+                    if let results = jsonResult["results"] {
+                        print("run")
+                        let resultsArray = results as! NSArray
+                        for i in 0..<resultsArray.count {
+                            let resultsDict = resultsArray[i] as! NSDictionary
+                            self.eventName = resultsDict["name"] as! String
+                            print("event name \(self.eventName)")
+                            let groupDict = resultsDict["group"] as! NSDictionary
+                            self.meetupName = groupDict["name"] as! String
+                            print(self.meetupName)
+                            if resultsDict.value(forKey: "venue") != nil {
+                                let venueDict = resultsDict["venue"] as! NSDictionary
+                                if venueDict.value(forKey: "lon") != nil {
+                                    self.meetupLon = (venueDict["lon"] as! Double)
+                                    print("lon \(self.meetupLon)")
+                                }
+                                if venueDict.value(forKey: "lat") != nil  {
+                                    self.meetupLat = Double(venueDict["lat"] as! Float)
+                                    print("lan \(self.meetupLat)")
+                                }
+                                if venueDict.value(forKey: "address_1") != nil  {
+                                    self.meetupAddress = venueDict["address_1"] as! String
+                                    print("address \(self.meetupAddress)")
+                                }
+                                if venueDict.value(forKey: "city") != nil  {
+                                    self.meetupCity = venueDict["city"] as! String
+                                    print("city \(self.meetupCity)")
+                                }
+                            }
+                            if resultsDict.value(forKey: "event_url") != nil {
+                                let meetupUrl = resultsDict["event_url"] as! String
+                                print("URL \(meetupUrl)")
+                            }
+                            if resultsDict.value(forKey: "time") != nil {
+                                let meetupTime = resultsDict["time"] as! Int
+                                print("Time \(meetupTime)")
+                            }
+                            var artwork = Artwork(title: "\(self.eventName)",
+                                city: "\(self.meetupCity)",
+                                address: "\(self.meetupAddress)",
+                                desc: "(meetupDesc)",
+                                who: "\(self.meetupName)",
+                                time: "TIME",
+                                event_url: "\(self.meetupURL)",
+                                coordinate: CLLocationCoordinate2D(latitude: self.meetupLat, longitude: self.meetupLon))
+                            self.mapView.addAnnotation(artwork)
+                        }
+                    }
+                }
+                DispatchQueue.main.async {
+                }
+            } catch {
+                print("something wrong")
+            }
+        })
+    
         locationManager.delegate = self;
         self.mapView.delegate = self;
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+
+        
         let artwork = Artwork(title: "Coding Dojo Silicon Valley",
-                              tag: "Click to investigate The Dojo!",
-                              discipline: "Home",
-                              shortNextClue: "An 'inmate' at The Dojo says MC has friends in the airline industry.",
-                              longNextClue: "One of the Dojo inmates has little love for MC and his cryptic online tutorials. He tells you that he overheard MC mention a friend in the airline industry. That will be enough to go off of.",
-                              eventDescription: "Your services have been enlisted to find the notorious fugitive 'MC' who has recently escaped from his dojo prison. What drives this fugitive? Where is he going? Whatever it is, you have received your first clue.",
-                              identifyer: 1,
+                              city: "San Jose",
+                              address: "1920 Zanker Rd #20, San Jose, CA 95112",
+                              desc: "coding Dojo meetup",
+                              who: "Coding Dojo Silicon Valley",
+                              time: "April 3rd",
+                              event_url: "http://www.codingdojo",
                               coordinate: CLLocationCoordinate2D(latitude: 37.3753590, longitude: -121.910980))
         mapView.addAnnotation(artwork)
         
         centerMapOnLocation(location: initialLocation)
     mapView.delegate = self
-
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //                let location = locations[0]
@@ -89,13 +162,13 @@ extension JohnViewController: MKMapViewDelegate {
         self.location = view.annotation as? Artwork
         print("tapped")
         performSegue(withIdentifier: "ShowClue", sender: Any?.self)
-        print("self.location.longNextClue: ",self.location?.longNextClue as Any)
-        print("location.description: ", self.location?.description as Any)
-        print("self.location.title: ", self.location?.title! as Any)
-        print("self.location.identifyer: ", self.location?.identifyer as Any)
-        print("self.location.discipline: ", self.location?.discipline as Any)
-        print("self.location.coordinate: ", self.location?.coordinate as Any)
-        print("self.location.tag: ", self.location?.tag as Any)
+//        print("self.location.longNextClue: ",self.location?.longNextClue as Any)
+//        print("location.description: ", self.location?.description as Any)
+//        print("self.location.title: ", self.location?.title! as Any)
+//        print("self.location.identifyer: ", self.location?.identifyer as Any)
+//        print("self.location.discipline: ", self.location?.discipline as Any)
+//        print("self.location.coordinate: ", self.location?.coordinate as Any)
+//        print("self.location.tag: ", self.location?.tag as Any)
         
     }
 }
