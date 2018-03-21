@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zej-b2-mEh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,24 +18,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzF-WP-gvO">
-                                <rect key="frame" x="168.5" y="323" width="38" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KWG-kb-dm0">
+                                <rect key="frame" x="0.0" y="141" width="375" height="526"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YaX-2T-ve6">
+                                <rect key="frame" x="96" y="20" width="182.5" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tech Meetups Near You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Gm-Dh-nYz">
+                                        <rect key="frame" x="0.0" y="0.0" width="182.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SzF-WP-gvO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x99-Uw-zsn"/>
-                            <constraint firstItem="SzF-WP-gvO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zJp-Ns-nlr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YaX-2T-ve6" secondAttribute="trailing" constant="96.5" id="2kD-KG-jwb"/>
+                            <constraint firstItem="YaX-2T-ve6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="96" id="Aze-VQ-6Uy"/>
+                            <constraint firstItem="KWG-kb-dm0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="121" id="Jjt-La-RzR"/>
+                            <constraint firstItem="YaX-2T-ve6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jvj-rj-0en"/>
+                            <constraint firstItem="KWG-kb-dm0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MRq-Tx-iCB"/>
+                            <constraint firstItem="KWG-kb-dm0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VsI-u0-Hn5"/>
+                            <constraint firstItem="YaX-2T-ve6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pDp-nj-AJk"/>
+                            <constraint firstAttribute="trailing" secondItem="KWG-kb-dm0" secondAttribute="trailing" id="qtn-yN-08d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="KWG-kb-dm0" id="xsv-bE-xio"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="127"/>
+            <point key="canvasLocation" x="84" y="126.38680659670166"/>
         </scene>
         <!--Maria's View Controller-->
         <scene sceneID="R76-UO-qnu">
@@ -89,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h53-Iv-nVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="128"/>
+            <point key="canvasLocation" x="1711" y="134"/>
         </scene>
     </scenes>
 </document>
