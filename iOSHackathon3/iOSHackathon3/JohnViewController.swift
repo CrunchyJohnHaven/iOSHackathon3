@@ -30,7 +30,7 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
     var meetupLon: Double = -121.910980
     var meetupAddress: String = "1920 Zanker Rd #20"
     var meetupName: String = "Name" //*
-    var meetupURL: String = "URL" //*
+    var meetupUrl: String = "URL" //*
     var meetupTime: String = "7:00pm - 12 June" //*
     
     var data: [String] = []
@@ -70,20 +70,15 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
                                 
                             }
                             if resultsDict.value(forKey: "event_url") != nil {
-                                let meetupUrl = resultsDict["event_url"] as! String
+                                self.meetupUrl = resultsDict["event_url"] as! String
                             }
-                            if resultsDict.value(forKey: "time") != nil {
-                                let meetupTime = resultsDict["time"] as! Int
-
-                                
-                            }
-                            var artwork = Artwork(title: "\(self.eventName)",
+                            let artwork = Artwork(title: "\(self.eventName)",
                                 city: "\(self.meetupCity)",
                                 address: "\(self.meetupAddress)",
                                 desc: "\(self.meetupTime)",
                                 who: "\(self.meetupName)",
                                 time: "\(self.meetupTime)",
-                                event_url: "\(self.meetupURL)",
+                                event_url: "\(self.meetupUrl)",
                                 coordinate: CLLocationCoordinate2D(latitude: self.meetupLat, longitude: self.meetupLon))
                             self.mapView.addAnnotation(artwork)
                         }
@@ -108,7 +103,7 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
                               desc: "coding Dojo meetup",
                               who: "Coding Dojo Silicon Valley",
                               time: "April 3rd",
-                              event_url: "http://www.codingdojo",
+                              event_url: "http://www.codingdojo.com/",
                               coordinate: CLLocationCoordinate2D(latitude: 37.3753590, longitude: -121.910980))
         mapView.addAnnotation(artwork)
         
@@ -120,7 +115,7 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
 //                let center = location.coordinate
 //                let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
 //                let region = MKCoordinateRegion(center:center, span:span)
-//                mapView.setRegion(region, animated: true)
+//                mapView.setRegion(region, animated: true)chr
         mapView.showsUserLocation = true
     }
     override func didReceiveMemoryWarning() {

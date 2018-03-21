@@ -24,7 +24,15 @@ class NatalieViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func linkButtonPressed(_ sender: Any) {
+        openUrl(urlStr: self.meetupUrl)
+    }
     
+    func openUrl(urlStr: String!){
+        if let url = NSURL(string: urlStr) {
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
+    }
     
     @IBOutlet weak var eventNameLabel: UILabel!
 
@@ -52,10 +60,10 @@ class NatalieViewController: UIViewController {
         self.meetupCity = (self.location?.city)!
         self.meetupAddress = (self.location?.address)!
         self.meetupUrl = (self.location?.event_url)!
+        self.meetupLocation = (self.location?.who)!
         
         
-        
-        descriptionLabel.text = "This meetup is taking place in \(self.meetupCity) on \(self.meetupTime). It is hosted by \(self.meetupLocation) at \(self.meetupAddress). For more information and to join the event go to \(self.meetupUrl)"
+        descriptionLabel.text = "This meetup is taking place in \(self.meetupCity) at \(self.meetupTime). It is hosted by \(self.meetupLocation) at \(self.meetupAddress)."
         
         
 

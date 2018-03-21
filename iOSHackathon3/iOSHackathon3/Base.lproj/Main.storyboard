@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -154,13 +155,23 @@
                                 <rect key="frame" x="0.0" y="261" width="375" height="185"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WI-BQ-33k">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmy-Cj-14u">
+                                        <rect key="frame" x="0.0" y="129.5" width="375" height="55.5"/>
+                                        <state key="normal" title="Go To MeetUp ">
+                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="linkButtonPressed:" destination="QGd-BR-TgQ" eventType="touchUpInside" id="tvr-Qf-J8A"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="4WI-BQ-33k" firstAttribute="height" secondItem="DFb-zB-z1X" secondAttribute="height" multiplier="0.7" id="LSG-bf-RNY"/>
                                     <constraint firstAttribute="height" constant="185" id="hnD-i6-O7R"/>
                                 </constraints>
                             </stackView>
