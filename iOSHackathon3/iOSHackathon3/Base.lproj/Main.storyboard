@@ -72,8 +72,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Natalie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5j-Jb-Vh4">
-                                <rect key="frame" x="160.5" y="323" width="54" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qr4-bZ-X26" userLabel="nameStack View">
+                                <rect key="frame" x="0.0" y="40" width="375" height="81"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of event " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bem-hN-tVm">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="I7R-ko-KZm"/>
+                                    <constraint firstAttribute="height" constant="81" id="qua-ko-gkK"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c8h-so-nPc" userLabel="hostedStack View">
+                                <rect key="frame" x="0.0" y="131" width="375" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9r-b7-hjB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6kg-ij-EHF"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-kw-xNx" userLabel="descriptionStack View">
+                                <rect key="frame" x="0.0" y="249" width="42" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="igr-7R-oHZ" userLabel="specsStack View">
+                                <rect key="frame" x="0.0" y="518" width="375" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="3n4-zf-JiP"/>
+                                    <constraint firstAttribute="width" constant="375" id="EZd-Yz-v02"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZZ-Xn-X0d">
+                                <rect key="frame" x="16" y="314" width="115" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,15 +122,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="P5j-Jb-Vh4" firstAttribute="centerY" secondItem="4GB-3K-Kbb" secondAttribute="centerY" id="N7Q-TW-oht"/>
-                            <constraint firstItem="P5j-Jb-Vh4" firstAttribute="centerX" secondItem="4GB-3K-Kbb" secondAttribute="centerX" id="tBv-zm-o2a"/>
+                            <constraint firstItem="DOn-uB-9hW" firstAttribute="bottom" secondItem="igr-7R-oHZ" secondAttribute="bottom" constant="10" id="0Gr-MA-qp3"/>
+                            <constraint firstItem="igr-7R-oHZ" firstAttribute="trailing" secondItem="DOn-uB-9hW" secondAttribute="trailing" id="IVq-5t-RJh"/>
+                            <constraint firstItem="c8h-so-nPc" firstAttribute="trailing" secondItem="DOn-uB-9hW" secondAttribute="trailing" id="JGM-Se-WCy"/>
+                            <constraint firstItem="Qr4-bZ-X26" firstAttribute="trailing" secondItem="DOn-uB-9hW" secondAttribute="trailing" id="JXk-Sg-bfg"/>
+                            <constraint firstItem="c8h-so-nPc" firstAttribute="top" secondItem="Qr4-bZ-X26" secondAttribute="bottom" constant="10" id="LSo-C6-OoM"/>
+                            <constraint firstItem="igr-7R-oHZ" firstAttribute="leading" secondItem="DOn-uB-9hW" secondAttribute="leading" id="Mtn-zO-zwB"/>
+                            <constraint firstItem="Qr4-bZ-X26" firstAttribute="leading" secondItem="DOn-uB-9hW" secondAttribute="leading" id="QiW-tj-Dzg"/>
+                            <constraint firstItem="Qr4-bZ-X26" firstAttribute="top" secondItem="DOn-uB-9hW" secondAttribute="top" constant="20" id="e3h-ET-Ehs"/>
+                            <constraint firstItem="c8h-so-nPc" firstAttribute="leading" secondItem="DOn-uB-9hW" secondAttribute="leading" id="fJJ-bT-Se9"/>
+                            <constraint firstItem="c8h-so-nPc" firstAttribute="top" secondItem="Qr4-bZ-X26" secondAttribute="bottom" constant="10" id="ykx-AD-Qbh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DOn-uB-9hW"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h53-Iv-nVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="128"/>
+            <point key="canvasLocation" x="1516" y="127.28635682158921"/>
         </scene>
     </scenes>
 </document>
