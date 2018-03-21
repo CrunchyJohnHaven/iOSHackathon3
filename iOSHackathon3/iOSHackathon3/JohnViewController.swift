@@ -74,7 +74,7 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
                             }
                             if resultsDict.value(forKey: "time") != nil {
                                 let meetupTime = resultsDict["time"] as! Int
-                            gi
+
                                 
                             }
                             var artwork = Artwork(title: "\(self.eventName)",
