@@ -7,8 +7,13 @@
 //
 
 import Foundation
+<<<<<<< HEAD
+protocol NatalieDelegate: class {
+    func passMeetup(meetupData: String)
+=======
 import UIKit
 
 protocol ReturnButtonDelegate: class {
     func returnButton(by controller: UIViewController)
+>>>>>>> origin/master
 }

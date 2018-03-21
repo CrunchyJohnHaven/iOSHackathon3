@@ -9,6 +9,9 @@
 import UIKit
 
 class NatalieViewController: UIViewController {
+<<<<<<< HEAD
+    var delegate: NatalieDelegate?
+=======
 
     var delegate: ReturnButtonDelegate?
     
@@ -20,6 +23,7 @@ class NatalieViewController: UIViewController {
     
     
     
+>>>>>>> origin/master
     @IBOutlet weak var eventNameLabel: UILabel!
 
     @IBOutlet weak var meetupNameLabel: UILabel!

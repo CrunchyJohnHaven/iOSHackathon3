@@ -171,7 +171,17 @@ extension JohnViewController: MKMapViewDelegate {
         self.location = view.annotation as? Artwork
         print("tapped")
         performSegue(withIdentifier: "ShowClue", sender: Any?.self)
-//        print("self.location.longNextClue: ",self.location?.longNextClue as Any)
+    }
+}
+
+extension JohnViewController: ReturnButtonDelegate {
+            func returnButton(by controller: UIViewController) {
+            dismiss(animated: true, completion: nil)
+                print("Pressed")
+        }
+    }
+        
+        //        print("self.location.longNextClue: ",self.location?.longNextClue as Any)
 //        print("location.description: ", self.location?.description as Any)
 //        print("self.location.title: ", self.location?.title! as Any)
 //        print("self.location.identifyer: ", self.location?.identifyer as Any)
@@ -179,6 +189,5 @@ extension JohnViewController: MKMapViewDelegate {
 //        print("self.location.coordinate: ", self.location?.coordinate as Any)
 //        print("self.location.tag: ", self.location?.tag as Any)
         
-    }
-}
+
 
