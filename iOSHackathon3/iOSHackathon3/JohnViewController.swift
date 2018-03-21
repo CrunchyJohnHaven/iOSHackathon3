@@ -33,25 +33,25 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
     var meetupURL: String = "URL" //*
     var meetupTime: String = "7:00pm - 12 June" //*
     
-        
-    
+    var data: [String] = []
+    var delegate: JohnDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         MeetupModel.getTechMeetups(completionHandler: {data, response, error in
             do {
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options:
                     JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
-                    print("run1")
+//                    print("run1")
                     if let results = jsonResult["results"] {
-                        print("run")
+//                        print("run")
                         let resultsArray = results as! NSArray
                         for i in 0..<resultsArray.count {
                             let resultsDict = resultsArray[i] as! NSDictionary
                             self.eventName = resultsDict["name"] as! String
-                            print("event name \(self.eventName)")
+//                            print("event name \(self.eventName)")
                             let groupDict = resultsDict["group"] as! NSDictionary
                             self.meetupName = groupDict["name"] as! String
-                            print(self.meetupName)
+//                            print(self.meetupName)
                             if resultsDict.value(forKey: "venue") != nil {
                                 let venueDict = resultsDict["venue"] as! NSDictionary
                                 if venueDict.value(forKey: "lon") != nil {
@@ -92,7 +92,7 @@ class JohnViewController: UIViewController, CLLocationManagerDelegate {
                 DispatchQueue.main.async {
                 }
             } catch {
-                print("something wrong")
+//                print("something wrong")
             }
         })
     
@@ -156,29 +156,30 @@ extension JohnViewController: MKMapViewDelegate {
         return view
 }
     
-//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "ShowClue" {
-//        let navigationController = segue.destination as! UINavigationController
-//        let controller = navigationController.topViewController as! ViewControllerTwo
-//        controller.delegate = self
-//        }
-//    }
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    print("PREP1")
+    if segue.identifier == "SegueOne" {
+        print("PREPARE FOR SEGUE")
+        let navigationController = segue.destination as! UINavigationController
+        let controller = navigationController.topViewController as! NatalieViewController
+        controller.delegate = self
+        controller.location = self.location
+        print("self.location")
+        }
+    }
 
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
-        
         self.location = view.annotation as? Artwork
+        print("LOCATION:", self.location!)
         print("tapped")
-        performSegue(withIdentifier: "ShowClue", sender: Any?.self)
+        performSegue(withIdentifier: "SegueOne", sender: self)
     }
 }
 
-extension JohnViewController: ReturnButtonDelegate {
-            func returnButton(by controller: UIViewController) {
-            dismiss(animated: true, completion: nil)
-                print("Pressed")
-        }
+extension JohnViewController: JohnDelegate {
+    
     }
         
         //        print("self.location.longNextClue: ",self.location?.longNextClue as Any)
