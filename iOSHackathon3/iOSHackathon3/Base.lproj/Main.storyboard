@@ -155,11 +155,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h53-Iv-nVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="1516" y="127.28635682158921"/>
-=======
             <point key="canvasLocation" x="1711" y="134"/>
->>>>>>> refs/remotes/origin/master
         </scene>
     </scenes>
 </document>

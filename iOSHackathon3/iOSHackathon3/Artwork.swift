@@ -13,22 +13,22 @@ import Contacts
 
 class Artwork: NSObject, MKAnnotation {
     let title: String?
-    let discipline: String
-    let tag: String
-    let shortNextClue: String
-    let longNextClue: String
-    let eventDescription: String
-    let identifyer: Int
+    let city: String
+    let address: String
+    let desc: String
+    let who: String
+    let time: String
+    let event_url: String
     let coordinate: CLLocationCoordinate2D
     
-    init(title: String, tag: String, discipline: String, shortNextClue: String, longNextClue: String, eventDescription: String, identifyer: Int,  coordinate: CLLocationCoordinate2D) {
+    init(title: String, city: String, address: String, desc: String, who: String, time: String, event_url: String,  coordinate: CLLocationCoordinate2D) {
         self.title = title
-        self.tag = tag
-        self.discipline = discipline
-        self.shortNextClue = shortNextClue
-        self.longNextClue = longNextClue
-        self.eventDescription = eventDescription
-        self.identifyer = identifyer
+        self.city = city
+        self.address = address
+        self.desc = desc
+        self.who = who
+        self.time = time
+        self.event_url = event_url
         
         self.coordinate = coordinate
         
@@ -36,7 +36,7 @@ class Artwork: NSObject, MKAnnotation {
     }
     
     var subtitle: String? {
-        return tag
+        return desc
     }
     ///!!!! OPENING MAPS - create MKMapItem from an MKPlacemark
     func mapItem() -> MKMapItem {

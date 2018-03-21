@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		931A717A2061E32600F6FBF6 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A71792061E32600F6FBF6 /* Artwork.swift */; };
+		932A55BC2061FBA400B85EEC /* MeetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A55BB2061FBA400B85EEC /* MeetupModel.swift */; };
 		93675321206182BE009C7651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93675320206182BE009C7651 /* AppDelegate.swift */; };
 		93675323206182BE009C7651 /* JohnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93675322206182BE009C7651 /* JohnViewController.swift */; };
 		93675326206182BE009C7651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93675324206182BE009C7651 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		931A71792061E32600F6FBF6 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		932A55BB2061FBA400B85EEC /* MeetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupModel.swift; sourceTree = "<group>"; };
 		9367531D206182BE009C7651 /* iOSHackathon3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSHackathon3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93675320206182BE009C7651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93675322206182BE009C7651 /* JohnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JohnViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				931A71792061E32600F6FBF6 /* Artwork.swift */,
 				93675320206182BE009C7651 /* AppDelegate.swift */,
 				93675322206182BE009C7651 /* JohnViewController.swift */,
+				932A55BB2061FBA400B85EEC /* MeetupModel.swift */,
 				936753352061B226009C7651 /* NatalieViewController.swift */,
 				936753372061B230009C7651 /* MariaViewController.swift */,
 				93675324206182BE009C7651 /* Main.storyboard */,
@@ -166,6 +169,7 @@
 				9367533C2061B296009C7651 /* NatalieDelegate.swift in Sources */,
 				931A717A2061E32600F6FBF6 /* Artwork.swift in Sources */,
 				9367533A2061B280009C7651 /* JohnDelegate.swift in Sources */,
+				932A55BC2061FBA400B85EEC /* MeetupModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
